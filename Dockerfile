@@ -15,13 +15,14 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends \
 RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN ln -s /usr/bin/pip3 /usr/bin/pip
 
-RUN pip --no-cache-dir install numpy==1.16.2 scipy==1.2.1 scikit-learn==0.20.2 pandas flask gunicorn
+RUN pip --no-cache-dir install numpy scikit-learn==0.20.2 pandas 
+# flask gunicorn
 
 
 ENV PYTHONUNBUFFERED=TRUE
 ENV PYTHONDONTWRITEBYTECODE=TRUE
-ENV PATH="/opt/program:${PATH}"
+ENV PATH="C:\Users\Dhiaa Mejdi\Documents\ML-Projects:${PATH}"
 
-COPY salary_prediction /opt/program
-WORKDIR /opt/program
 
+COPY app-ML.py /app.py
+COPY model.pickle /model.pickle
